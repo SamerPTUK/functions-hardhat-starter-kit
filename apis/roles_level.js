@@ -1,14 +1,16 @@
 import { baseUrl } from './_config';
 
-const type = args[1]
-const id = args[2]
-const password = args[3]
+const level = args[1]
+const toekn = args[2]
 
-const url =  baseUrl + `api/` + id + '/' + password
+const url =  baseUrl + `roles/`+ level
 
 const httpRequest = Functions.makeHttpRequest({
   url: url,
   method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${toekn}`
+  },
 })
 
 // Execute the API request
